@@ -20,7 +20,7 @@ class RegisterFormView(FormView):
     success_url = "/"
 
     # Шаблон, который будет использоваться при отображении представления.
-    template_name = "register.html"
+    template_name = "register/register.html"
 
     def form_valid(self, form):
         # Создаём пользователя, если данные в форму были введены корректно.
@@ -35,7 +35,7 @@ class LoginFormView(FormView):
     form_class = AuthenticationForm
 
     # Аналогично регистрации, только используем шаблон аутентификации.
-    template_name = "login.html"
+    template_name = "register/login.html"
 
     # В случае успеха перенаправим на главную.
     success_url = "/"

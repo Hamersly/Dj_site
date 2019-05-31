@@ -1,0 +1,28 @@
+{% extends 'register/base_blog.html'%}
+
+{% block title %}
+Login
+{% endblock%}
+
+{% block content %}
+<div class="card mb-4">
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+    <div class="container" style="margin-left:75px">
+        <form action="" method="post">
+            {% csrf_token %}
+            <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary" style="margin-left:120px">Log in</button>
+        </form>
+        <a href="{%url 'register_url'%}">
+            <button type="button" class="btn btn-primary" style="margin-left:100px; margin-top:30px;">Registration
+            </button>
+        </a>
+    </div>
+    </div>
+    <div class="card-footer text-muted">
+    </div>
+</div>
+{% endblock%}

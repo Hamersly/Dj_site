@@ -1,0 +1,22 @@
+{% extends 'register/base_blog.html'%}
+
+{% block title %}
+Register
+{% endblock%}
+
+{% block content %}
+<div class="card mb-4">
+    <div class="card-header">
+    </div>
+    <div class="card-body">
+        <form action="" method="post">
+            {% csrf_token %}
+            <!-- as_p для того, чтобы каждый элемент формы был с новой строки -->
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary" style="margin-left:36%">Registration</button>
+        </form>
+    </div>
+    <div class="card-footer text-muted">
+    </div>
+</div>
+{% endblock%}
