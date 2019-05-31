@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+
+{% block title %}
+    My Blog
+{% endblock%}
+
+{% block content %}
+<p class="bg-primary">
+    <h1 class="text-center">
+        <a href="https://ru.wikipedia.org/wiki/Блог">
+            Это мой блог!!!
+        </a>
+    </h1>
+</p>
+    {% load staticfiles%}
+    <div class="container">
+        <!--<img src="{% static 'mainAppS/image/blog3.png' %}" class="img-fluid">-->
+    </div>
+{% endblock%}

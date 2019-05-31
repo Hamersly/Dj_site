@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="eng">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>
+        {% block title %}
+        Block Engine
+        {% endblock%}
+    </title>
+    <style>
+        body {
+        background-image: url('https://wallbox.ru/wallpapers/main/201111/a1e1860795f19cab101037f9638e7a17.jpg');
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-attachment:fixed;
+        background-size: cover;
+        background-color: #464646;
+        }
+
+
+
+
+
+    </style>
+</head>
+<body>
+<nav class=" navbar navbar-expand-sm bg-light" style="background-color: #e3f2fd;">
+    <a class="navbar-brand" href="{%url 'index'%}">Home</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{%url 'posts_list_url'%}">Posts</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'tags_list_url'%}">Tags</a>
+            </li>
+            {% if request.user.is_authenticated and request.user.is_staff %}
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'post_create_url'%}">Create Post</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{%url 'tag_create_url'%}">Create Tag</a>
+            </li>
+
+
+            <li class="nav-item dropdown" id="additionally" style="{%if detail%}display: block;{%endif%}">
+                <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                    Additionally
+                </a>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{{admin_obj.get_update_url}}">Edit</a>
+                    <a class="dropdown-item" href="{{admin_obj.get_delete_url}}">Delete</a>
+                </div>
+            </li>
+            {%endif%}
+
+        </ul>
+
+        <a href="{%url 'login_url'%}">
+            <button type="button" class="btn btn-outline-primary btn-sm" style="margin-right:20px">Log in</button>
+        </a>
+        <a href="*">
+            <button type="button" class="btn btn-outline-primary btn-sm">Exit</button>
+        </a>
+    </div>
+</nav>
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-6 offset-md-3">
+            {% block content %}
+            Text
+            {% endblock%}
+        </div>
+    </div>
+</div>
+</body>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</html>
