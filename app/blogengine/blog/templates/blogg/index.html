@@ -1,14 +1,14 @@
 {% extends 'blogg/base_blog.html'%}
 
 
-
 {% block title %}
-    Posts list
+Posts list
 {% endblock%}
 
 {% block content %}
-    <h1 class="mb-5">Posts:</h1>
-    {% for post in posts %}
-        {% include 'blogg/includs/post_card_template.html'%}
-    {%endfor%}
+<h1 class="mb-5">Posts:</h1>
+{% for post in page_object.object_list %}
+{% include 'blogg/includs/post_card_template.html'%}
+{%endfor%}
+
 {% endblock%}
